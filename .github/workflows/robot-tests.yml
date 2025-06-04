@@ -25,22 +25,23 @@ jobs:
         pip install robotframework-seleniumlibrary
         pip install robotframework-faker
 
-    - name: Install Chrome
+    - name: Install Chrome and ChromeDriver
       run: |
         sudo apt-get update
-        sudo apt-get install google-chrome-stable
-        sudo apt-get install chromium-chromedriver
+        sudo apt-get install -y google-chrome-stable chromium-chromedriver
+        chrome --version
+        chromedriver --version
+
+    - name: Create output directory
+      run: mkdir -p output
 
     - name: Run Robot Framework Tests
       run: |
-        robot testes/
+        robot --outputdir output testes/
 
     - name: Upload test results
       uses: actions/upload-artifact@v3
       if: always()
       with:
         name: robot-test-results
-        path: |
-          log.html
-          report.html
-          output.xml
+        path: output/

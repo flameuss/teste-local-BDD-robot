@@ -60,12 +60,12 @@ pip install robotframework-faker
 
 Para executar todos os testes:
 ```bash
-robot testes/
+robot --outputdir output testes/
 ```
 
 Para executar um teste específico:
 ```bash
-robot testes/cadastro-card-correto.robot
+robot --outputdir output testes/cadastro-card-correto.robot
 ```
 
 ### Links para os Testes
