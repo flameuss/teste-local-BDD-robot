@@ -84,6 +84,40 @@ Após a execução dos testes, o Robot Framework gera automaticamente relatório
 
 Os relatórios e capturas de tela são salvos na **raiz do projeto** para facilitar o acesso e consulta.
 
+## 📊 Resultados dos Testes (CI)
+
+Os testes são executados automaticamente pelo GitHub Actions e geraram os seguintes resultados:
+
+```plaintext
+==============================================================================
+Testes
+==============================================================================
+Testes.Cadastro-Card-Correto                                                  
+==============================================================================
+Verificar se ao preencher os campos do formulário corretamente os ... | PASS |
+------------------------------------------------------------------------------
+Verificar se é possivel criar mais um card se preenchermos os camp... | PASS |
+------------------------------------------------------------------------------
+Verificar se é possivel criar um card para cada time disponivel se... | PASS |
+------------------------------------------------------------------------------
+Testes.Cadastro-Card-Correto                                          | PASS |
+3 tests, 3 passed, 0 failed
+==============================================================================
+Testes.Cadastro-Card-Incorreto                                                
+==============================================================================
+Verificar se quando o campo obrigatório não for preenchido correta... | PASS |
+------------------------------------------------------------------------------
+Testes.Cadastro-Card-Incorreto                                        | PASS |
+1 test, 1 passed, 0 failed
+==============================================================================
+Testes                                                                | PASS |
+4 tests, 4 passed, 0 failed
+==============================================================================
+Output:  /output/output.xml
+Log:     /output/log.html
+Report:  /output/report.html
+```
+
 ## 🔍 Casos de Teste
 
 ### Cadastro de Card Correto
