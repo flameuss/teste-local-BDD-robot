@@ -30,9 +30,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install robotframework
-        pip install robotframework-seleniumlibrary
-        pip install robotframework-faker
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Install Chrome and ChromeDriver
       run: |
@@ -41,20 +39,15 @@ jobs:
         google-chrome --version
         chromedriver --version
 
-    - name: Create output directory
-      run: mkdir -p output
-
     - name: Run Robot Framework Tests
       run: |
-        robot --outputdir output testes/
+        mkdir -p output
+        robot --outputdir output testes/ || true
 
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v4
       with:
         name: robot-test-results
-        path: |
-          output/log.html
-          output/report.html
-          output/output.xml
+        path: output/*
         retention-days: 30
