@@ -8,4 +8,4 @@ Test Teardown       Fechar o Navegador
 Verificar se quando o campo obrigatório não for preenchido corretamente o sistema exibe uma mensagem de campo obrigatório
     Dado que eu clique no botão criar card
     Então o sistema deve apresentar mensagem de campo obrigatório
-    
+    Capture Page Screenshot    name=card_campo_obrigatorio.png

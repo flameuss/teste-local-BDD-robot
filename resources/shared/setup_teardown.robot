@@ -2,7 +2,7 @@
 Resource            ../main.robot
 
 *** Variables ***
-${URL}                    http://localhost:3000/
+${URL}                    https://organo-teste.vercel.app/
 
 *** Keywords ***
 Dado que eu acesse o Organo

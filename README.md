@@ -42,11 +42,19 @@ pip install robotframework-faker
 ├── testes/
 │   ├── cadastro-card-correto.robot
 │   └── cadastro-card-incorreto.robot
+├── relatorios/
+│   ├── log.html
+│   ├── report.html
+│   ├── output.xml
+│   └── imagens/
+│       ├── card_criado.png
+│       └── card_campo_obrigatorio.png
 └── README.md
 ```
 
 - **resources/**: Contém os recursos reutilizáveis, como palavras-chave e configurações de setup e teardown.
 - **testes/**: Contém os casos de teste organizados por funcionalidade.
+- **relatorios/**: Pasta onde são salvos os relatórios e capturas de tela gerados durante a execução dos testes.
 
 ## ⚡ Executando os Testes
 
@@ -67,13 +75,14 @@ robot testes/cadastro-card-correto.robot
 
 ## 📊 Relatórios
 
-Após a execução dos testes, o Robot Framework gera automaticamente relatórios em HTML:
+Após a execução dos testes, o Robot Framework gera automaticamente relatórios em HTML e capturas de tela:
 
 - **log.html**: Log detalhado da execução.
 - **report.html**: Relatório resumido dos resultados.
 - **output.xml**: Dados brutos da execução.
+- **Capturas de tela**: Imagens geradas durante os testes, como `name=card_criado.png` e `name=card_campo_obrigatorio.png`.
 
-Os relatórios podem ser encontrados na raiz do projeto após a execução dos testes.
+Os relatórios e capturas de tela são salvos na **raiz do projeto** para facilitar o acesso e consulta.
 
 ## 🔍 Casos de Teste
 
@@ -92,6 +101,27 @@ Os relatórios podem ser encontrados na raiz do projeto após a execução dos t
 - **SeleniumLibrary**: Para interagir com elementos da interface web.
 - **FakerLibrary**: Para gerar dados fictícios e dinâmicos durante os testes.
 - **GitHub Actions**: Para integração contínua e execução automatizada dos testes.
+
+### Integração Contínua (CI)
+
+Este projeto utiliza **GitHub Actions** para executar os testes automaticamente em cada push ou pull request para as branches principais (`main` ou `master`).
+
+O workflow está configurado para:
+
+1. Configurar o ambiente Python.
+2. Instalar as dependências do projeto.
+3. Executar os testes automatizados.
+4. Gerar e armazenar os relatórios de teste como artefatos no GitHub.
+
+Os resultados dos testes podem ser visualizados diretamente na aba **Actions** do repositório no GitHub.
+
+## 🌐 Link do Projeto para Testes
+
+O projeto pode ser acessado para fins de teste através do seguinte link:
+
+[Organo Teste](https://organo-teste.vercel.app/)
+
+---
 
 ## 🤝 Contribuindo
 

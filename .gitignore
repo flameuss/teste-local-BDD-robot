@@ -1,0 +1,19 @@
+# Arquivos gerados pelo Robot Framework
+#log.html
+#report.html
+#output.xml
+#*.png
+
+# Diretórios e arquivos Python
+__pycache__/
+*.pyc
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Configurações do editor
+.vscode/
+.idea/
+*.swp
+*.swo
