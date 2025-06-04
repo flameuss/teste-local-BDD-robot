@@ -6,17 +6,26 @@ on:
   pull_request:
     branches: [ main, master ]
 
+permissions:
+  contents: read
+  actions: read
+  checks: write
+  issues: read
+  packages: read
+  pull-requests: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: '3.x'
+        cache: 'pip'
 
     - name: Install dependencies
       run: |
@@ -29,7 +38,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y google-chrome-stable chromium-chromedriver
-        chrome --version
+        google-chrome --version
         chromedriver --version
 
     - name: Create output directory
@@ -40,8 +49,12 @@ jobs:
         robot --outputdir output testes/
 
     - name: Upload test results
-      uses: actions/upload-artifact@v3
       if: always()
+      uses: actions/upload-artifact@v4
       with:
         name: robot-test-results
-        path: output/
+        path: |
+          output/log.html
+          output/report.html
+          output/output.xml
+        retention-days: 30
